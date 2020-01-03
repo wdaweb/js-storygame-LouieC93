@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Pop-up Game Ver_1</title>
+</head>
+
+<body>
+    <div id="gamebg">
+        <button onclick="gameStart()">Game Start</button>
+    </div>
+
+    <script>
+        function gameStart() {
+            let name;
+            // input name
+            if (name = prompt('被大卡車強制轉生的你，醒來後開始回想自己的名字...', '穗稻忠武')) {
+                alert(`想起了自己的名字是「${name}」，先開始往前走吧。`);
+            }
+            else {
+                name= '穗稻忠武';
+                alert(`還是想不起來，那...你就是「${name}」，先開始往前走吧。`);
+            }
+
+            if(confirm(`前方的旅程充滿未知的危險，提醒你要謹慎選擇，「${name}」你準備好了嗎？`)) {
+                alert(`不愧是天選之人，相信你能克服一切困難！`);
+                
+                // Q1
+                if (ans(
+                    '前方出現一道大門，要用力將它推開嗎？',
+                    '這扇門是滑門，觀差力細微的你成功避免了折到手的危機。',
+                    '這扇門是滑門，你推得太大力讓手腕脫臼了...',
+                    false
+                )) return true;
+                
+                // Q2
+                else if (ans(
+                    '門後是一座懸崖，風大到吹的臉都變形了，勇敢的你會選擇一躍而下嗎？',
+                    '一定是開啟的姿勢不對，重來一次就好。',
+                    '這...實在是太有勇無謀了',
+                    false
+                )) return true;
+                
+                // Q3
+                else if (ans(
+                    '你這次用雙手把門拉開，門後是一片的黑霧，並傳來濃濃的硫磺味，要再次把門關上嗎？',
+                    '在關上門的瞬間門後傳來巨大的撞擊聲，似乎成功躲開了不知名的攻擊',
+                    '這竟然是通往魔王城的密道，還是菜鳥的你一下子就被敵人給發現了',
+                    true
+                )) return true;
+                
+                // Q4
+                else if (ans(
+                    '聰明的你開始思考開門姿勢的差異帶來的影響，那這次試試用只用左手開門？',
+                    '門後是一間石造密室，中間有一座噴泉，一泡進去所有的疲勞就瞬間消失了。',
+                    '調皮的你又再次用雙手開門，但這次就沒那麼幸運，敵人剛好出現在你的面前。',
+                    true
+                )) return true;
+                
+                // Q5
+                else if (ans(
+                    '得到噴泉加護的你身心靈都恢復到最高點，回到門前的你想起了一句話\n「古代問題 需要古代手段」\n於是你決定將心中大膽的想法喊出？',
+                    '芝麻開門！！！效果卓越，你看到不遠處的新手村了！',
+                    '猶豫太久的你突然眼前一黑，眼前出現幾個大字「猶豫，就會敗北」',
+                    true
+                ))  return true;
+                        
+                // End
+                else if(true) alert(`恭喜「${name}」你找到了新手村 & 回復點 & 魔王城密道，相信你一定可以好好攻略完這款遊戲！`);
+                
+                else return;
+            }
+            else {
+                alert(`歡迎隨時再來挑戰！`);
+            }
+        }
+
+        function ans(question, good, bad, boolean) {
+            if(confirm(question)==boolean) {
+                alert(good);
+            } 
+            else {
+                alert(bad+'\n'+'人生重來槍 砰！！！');
+            }
+        }
+    </script>
+</body>
+
+</html>
